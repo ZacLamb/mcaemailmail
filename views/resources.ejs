@@ -1,0 +1,30 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/crumbs') %>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="eyebrow">Resources</div>
+    <h1>Guides for shops<br>running outbound</h1>
+    <p class="lede">Deliverability, sequencing, compliance, and lead economics — written for MCA shops, not for a general B2B audience that has never had a domain blacklisted.</p>
+    <div class="acts"><a class="btn" href="/book">Book a call</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="grid c2">
+      <% articles.forEach(function(a, i){ %>
+        <a class="card" href="/resources/<%= a.slug %>">
+          <span class="idx"><%= a.tags.join(' · ') %> &middot; <%= a.readMins %> min read</span>
+          <h3><%= a.title %></h3>
+          <p><%= a.dek %></p>
+          <span class="arrow">Read &rarr;</span>
+        </a>
+      <% }); %>
+    </div>
+    <div class="mt3"><%- include('partials/ctaband', { ctaHead: 'Want this applied to your shop?', ctaLine: 'We will look at your current sequence, sending setup, and data source and tell you where the leak is.' }) %></div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

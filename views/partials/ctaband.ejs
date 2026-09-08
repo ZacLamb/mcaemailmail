@@ -1,0 +1,11 @@
+<div class="cta-band">
+  <div>
+    <div class="eyebrow">Next step</div>
+    <h2><%= typeof ctaHead !== 'undefined' ? ctaHead : 'Get counts against your lender box' %></h2>
+    <p><%= typeof ctaLine !== 'undefined' && ctaLine ? ctaLine : 'Bring your criteria to the call and we will scope a test pull, confirm coverage, and price it.' %></p>
+  </div>
+  <div class="acts">
+    <a class="btn block" href="/book">Book a call</a>
+    <a class="btn ghost block" href="tel:<%= site.phoneHref %>"><%= site.phone %></a>
+  </div>
+</div>

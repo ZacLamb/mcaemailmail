@@ -1,0 +1,10 @@
+<% if (typeof faqs !== 'undefined' && faqs && faqs.length) { %>
+<div class="faq">
+  <% faqs.forEach(function(f, i){ %>
+    <details <%= i === 0 ? 'open' : '' %>>
+      <summary><%= f.q %></summary>
+      <div class="a"><%= f.a %></div>
+    </details>
+  <% }); %>
+</div>
+<% } %>

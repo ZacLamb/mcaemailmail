@@ -1,0 +1,106 @@
+<div class="form-panel" id="quote">
+  <div class="fh">
+    <h3><%= typeof formTitle !== 'undefined' ? formTitle : 'Request counts &amp; pricing' %></h3>
+    <span class="mono">Step 1 of 2</span>
+  </div>
+
+  <form id="leadForm" novalidate>
+    <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input type="hidden" name="source" value="<%= typeof formSource !== 'undefined' ? formSource : 'website' %>">
+    <input type="hidden" name="pageUrl" value="<%= canonical %>">
+
+    <div class="field-row">
+      <div class="field">
+        <label for="firstName">First name</label>
+        <input id="firstName" name="firstName" type="text" autocomplete="given-name" required>
+      </div>
+      <div class="field">
+        <label for="lastName">Last name</label>
+        <input id="lastName" name="lastName" type="text" autocomplete="family-name">
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="email">Work email *</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel">
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="company">Shop / company name</label>
+      <input id="company" name="company" type="text" autocomplete="organization">
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="leadType">What do you need?</label>
+        <select id="leadType" name="leadType">
+          <option value="">Select one</option>
+          <option>Exclusive MCA email leads</option>
+          <option>Shared MCA email leads</option>
+          <option>Aged MCA leads</option>
+          <option>Renewal / second position</option>
+          <option>UCC data + email append</option>
+          <option>Email append on my own list</option>
+          <option>Custom list build</option>
+          <option>Managed email campaigns</option>
+          <option>Cold email infrastructure</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="monthlyVolume">Monthly volume target</label>
+        <select id="monthlyVolume" name="monthlyVolume">
+          <option value="">Select one</option>
+          <option>Under 5,000 records</option>
+          <option>5,000 – 25,000</option>
+          <option>25,000 – 100,000</option>
+          <option>100,000+</option>
+          <option>Managed campaign — appointments only</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="states">States / territories</label>
+        <input id="states" name="states" type="text" placeholder="e.g. FL, TX, NY or nationwide">
+      </div>
+      <div class="field">
+        <label for="industries">Target verticals</label>
+        <input id="industries" name="industries" type="text" placeholder="e.g. trucking, restaurants">
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="crm">Where should leads be delivered?</label>
+      <select id="crm" name="crm">
+        <option value="">Select one</option>
+        <option>GoHighLevel</option>
+        <option>HubSpot</option>
+        <option>Salesforce</option>
+        <option>Close</option>
+        <option>Pipedrive</option>
+        <option>CSV export only</option>
+        <option>Webhook / API</option>
+        <option>Not sure yet</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="notes">Lender box or anything else we should know</label>
+      <textarea id="notes" name="notes" placeholder="Revenue floor, time in business, position, restricted industries..."></textarea>
+    </div>
+
+    <button class="btn block" type="submit" id="leadSubmit">Continue to booking &rarr;</button>
+    <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
+    <p class="form-note">
+      You will pick a time on the next screen. No spam, no resale of your information — see our <a href="/privacy" style="color:var(--text-2);text-decoration:underline">privacy policy</a>.
+    </p>
+  </form>
+</div>

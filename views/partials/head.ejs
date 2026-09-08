@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title><%= title %></title>
+<meta name="description" content="<%= description %>">
+<link rel="canonical" href="<%= canonical %>">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<meta property="og:type" content="<%= ogType %>">
+<meta property="og:site_name" content="<%= site.name %>">
+<meta property="og:title" content="<%= title %>">
+<meta property="og:description" content="<%= description %>">
+<meta property="og:url" content="<%= canonical %>">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<%= title %>">
+<meta name="twitter:description" content="<%= description %>">
+<meta name="theme-color" content="#08090c">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Chivo:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+<script type="application/ld+json">
+<%- JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: site.name,
+  url: site.baseUrl,
+  description: site.description,
+  email: site.email,
+  telephone: site.phone,
+  address: { '@type': 'PostalAddress', streetAddress: site.address.line1, addressLocality: 'Sheridan', addressRegion: 'WY', postalCode: '82801', addressCountry: 'US' },
+  areaServed: { '@type': 'Country', name: 'United States' }
+}) %>
+</script>
+<% if (schema) { %>
+<script type="application/ld+json"><%- JSON.stringify(schema) %></script>
+<% } %>
+<% if (breadcrumbs && breadcrumbs.length) { %>
+<script type="application/ld+json">
+<%- JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: site.baseUrl + '/' }].concat(
+    breadcrumbs.map((b, i) => ({ '@type': 'ListItem', position: i + 2, name: b.label, item: site.baseUrl + b.href }))
+  )
+}) %>
+</script>
+<% } %>
+<% if (site.ga4Id) { %>
+<script async src="https://www.googletagmanager.com/gtag/js?id=<%= site.ga4Id %>"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','<%= site.ga4Id %>');</script>
+<% } %>
+</head>
+<body>

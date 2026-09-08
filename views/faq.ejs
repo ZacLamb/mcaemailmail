@@ -1,0 +1,27 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/crumbs') %>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="eyebrow">FAQ</div>
+    <h1>Everything shops<br>ask us</h1>
+    <p class="lede">Verification, exclusivity, pricing, delivery, replacements, deliverability, and compliance. If yours is not here, ask on the call.</p>
+    <div class="acts"><a class="btn" href="/book">Book a call</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="two-col">
+      <div><%- include('partials/faqblock') %></div>
+      <div class="sticky"><%- include('partials/leadform', { formSource: 'faq', formTitle: 'Ask us directly' }) %></div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap"><%- include('partials/ctaband') %></div>
+</section>
+
+<%- include('partials/footer') %>

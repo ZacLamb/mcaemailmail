@@ -1,0 +1,75 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/crumbs') %>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="tags mb1"><span class="pill gold"><%= cmp.a %></span><span class="pill">vs</span><span class="pill"><%= cmp.b %></span></div>
+    <h1><%= cmp.title %></h1>
+    <p class="lede"><%= cmp.verdict %></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="two-col">
+      <div>
+        <p class="lede" style="color:var(--text)"><%= cmp.intro %></p>
+
+        <h2 class="mt3">Side by side</h2>
+        <div class="table-scroll mt2">
+          <table class="cmp">
+            <thead>
+              <tr><th>Factor</th><th><%= cmp.a %></th><th><%= cmp.b %></th></tr>
+            </thead>
+            <tbody>
+              <% cmp.rows.forEach(function(r){ %>
+                <tr><td><%= r[0] %></td><td><%= r[1] %></td><td><%= r[2] %></td></tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="mt3">Choose <%= cmp.a.toLowerCase() %> when</h2>
+        <ul class="checks mt2">
+          <% cmp.when.forEach(function(w){ %><li><%= w %></li><% }); %>
+        </ul>
+
+        <h2 class="mt3">Do not choose <%= cmp.a.toLowerCase() %> when</h2>
+        <ul class="checks mt2" style="--gold:var(--red)">
+          <% cmp.against.forEach(function(w){ %><li><%= w %></li><% }); %>
+        </ul>
+
+        <div class="divider"></div>
+        <p style="color:var(--text-2)">
+          The honest summary: <%= cmp.verdict.charAt(0).toLowerCase() + cmp.verdict.slice(1) %> If your current motion is producing and the constraint is closer capacity rather than top of funnel, adding a data source will not fix it. If your reps are idle or burning hours on dead contacts, it will.
+        </p>
+      </div>
+
+      <div class="sticky">
+        <%- include('partials/leadform', { formSource: 'compare:' + cmp.slug, formTitle: 'Talk it through' }) %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">More comparisons</div>
+      <h2>Other channel breakdowns</h2>
+    </div>
+    <div class="grid c2">
+      <% others.forEach(function(o){ %>
+        <a class="card" href="/compare/<%= o.slug %>">
+          <span class="idx"><%= o.a %> vs <%= o.b %></span>
+          <h3><%= o.title %></h3>
+          <p><%= o.verdict %></p>
+        </a>
+      <% }); %>
+    </div>
+    <div class="mt3"><%- include('partials/ctaband') %></div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

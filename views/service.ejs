@@ -1,0 +1,80 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/crumbs') %>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="tags mb1"><span class="pill gold"><%= service.category %></span></div>
+    <h1><%= service.name %></h1>
+    <p class="lede"><%= service.tagline %></p>
+    <div class="acts">
+      <a class="btn" href="/book">Book a call</a>
+      <a class="btn ghost" href="#quote">Request counts</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="two-col">
+      <div>
+        <h2>What this is</h2>
+        <p class="lede mt1"><%= service.summary %></p>
+
+        <h2 class="mt3">What you get</h2>
+        <ul class="checks mt2">
+          <% service.bullets.forEach(function(b){ %><li><%= b %></li><% }); %>
+        </ul>
+
+        <% if (service.fields) { %>
+          <h2 class="mt3">Fields included</h2>
+          <div class="tags mt2">
+            <% service.fields.forEach(function(f){ %><span class="pill"><%= f %></span><% }); %>
+          </div>
+        <% } %>
+
+        <h2 class="mt3">How it gets to you</h2>
+        <div class="spec mt2">
+          <% service.deliver.forEach(function(d, i){ %>
+            <div class="spec-row"><dt>Option 0<%= i + 1 %></dt><dd><%= d %></dd></div>
+          <% }); %>
+          <div class="spec-row"><dt>Best for</dt><dd><%= service.who %></dd></div>
+        </div>
+
+        <h2 class="mt3">Getting the most out of it</h2>
+        <ul class="checks teal mt2">
+          <% angles.forEach(function(a){ %><li><%= a %></li><% }); %>
+        </ul>
+
+        <div class="divider"></div>
+
+        <h2 class="mb2">Questions on <%= service.name %></h2>
+        <%- include('partials/faqblock') %>
+      </div>
+
+      <div class="sticky">
+        <%- include('partials/leadform', { formSource: 'service:' + service.slug, formTitle: 'Get pricing on this' }) %>
+
+        <% if (related && related.length) { %>
+          <div class="mt2">
+            <div class="mono mb1">Related services</div>
+            <div class="grid">
+              <% related.forEach(function(r){ %>
+                <a class="card" href="/services/<%= r.slug %>">
+                  <h3 style="font-size:1.05rem"><%= r.name %></h3>
+                  <p style="font-size:0.88rem"><%= r.tagline %></p>
+                </a>
+              <% }); %>
+            </div>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap"><%- include('partials/ctaband') %></div>
+</section>
+
+<%- include('partials/footer') %>

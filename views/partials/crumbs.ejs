@@ -1,0 +1,15 @@
+<% if (breadcrumbs && breadcrumbs.length) { %>
+<div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <% breadcrumbs.forEach(function(b, i){ %>
+      <span class="sep">/</span>
+      <% if (i === breadcrumbs.length - 1) { %>
+        <span style="color:var(--text-2)"><%= b.label %></span>
+      <% } else { %>
+        <a href="<%= b.href %>"><%= b.label %></a>
+      <% } %>
+    <% }); %>
+  </nav>
+</div>
+<% } %>

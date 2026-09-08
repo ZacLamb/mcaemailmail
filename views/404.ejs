@@ -1,0 +1,31 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="eyebrow">404</div>
+    <h1>That page<br>does not exist</h1>
+    <p class="lede">The link is broken or the page moved. Here is where most people were heading.</p>
+    <div class="acts"><a class="btn" href="/">Back to home</a><a class="btn ghost" href="/book">Book a call</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><div class="eyebrow">Popular services</div><h2>Start here</h2></div>
+    <div class="grid c3">
+      <% popularServices.forEach(function(s){ %>
+        <a class="card" href="/services/<%= s.slug %>"><h3><%= s.name %></h3><p><%= s.tagline %></p></a>
+      <% }); %>
+    </div>
+    <div class="section-head mt3"><div class="eyebrow">Verticals</div><h2>By industry</h2></div>
+    <div class="linkgrid">
+      <% popularIndustries.forEach(function(i){ %>
+        <a href="/industries/<%= i.slug %>"><span><%= i.short %></span><span class="ab">&rarr;</span></a>
+      <% }); %>
+      <a href="/industries"><span>All verticals</span><span class="ab">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

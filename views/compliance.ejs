@@ -1,0 +1,55 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/crumbs') %>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="eyebrow">Data &amp; compliance</div>
+    <h1>Where the data<br>comes from</h1>
+    <p class="lede">Data quality and compliance are the two things that quietly decide whether an outbound program lasts a quarter or a year. Here is how we handle both.</p>
+    <div class="acts"><a class="btn" href="/book">Ask us anything</a><a class="btn ghost" href="/opt-out">Opt out</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="two-col">
+      <div>
+        <h2>Sourcing</h2>
+        <p class="lede mt1">Records are compiled from public business filings and registrations, licensing and permit records, self-reported business directory submissions, partner intent networks, and merchant-permissioned inquiry data.</p>
+        <p style="color:var(--text-2)">Every record is business contact data, not consumer data. We do not compile personal consumer profiles, and we do not sell anything intended for consumer marketing.</p>
+
+        <h2 class="mt3">Verification pipeline</h2>
+        <div class="spec mt2">
+          <div class="spec-row"><dt>Pass 01</dt><dd>Syntax and formatting validation, role-account and disposable-domain screening</dd></div>
+          <div class="spec-row"><dt>Pass 02</dt><dd>Domain and MX record validation, catch-all detection and flagging</dd></div>
+          <div class="spec-row"><dt>Pass 03</dt><dd>Mailbox-level verification, with failures removed rather than counted against your order</dd></div>
+          <div class="spec-row"><dt>Ongoing</dt><dd>Rolling re-verification on held inventory; anything older than 30 days is re-checked before release</dd></div>
+        </div>
+
+        <h2 class="mt3">Suppression</h2>
+        <ul class="checks mt2">
+          <li>Global opt-out list applied permanently across every account and campaign</li>
+          <li>Client CRM suppression on request, so you never pay for a contact you already own</li>
+          <li>Litigator and complaint-flag suppression maintained continuously</li>
+          <li>Client-supplied do-not-contact lists honored on every subsequent pull</li>
+        </ul>
+
+        <h2 class="mt3">CAN-SPAM in practice</h2>
+        <p style="color:var(--text-2)">Every managed campaign we run uses accurate sender identity and headers, non-deceptive subject lines, a valid physical postal address, and a working one-click opt-out processed immediately and globally. When you send data yourself, those obligations are yours — and hiring a vendor does not transfer them. We build to the standard and expect clients to send responsibly.</p>
+        <p style="color:var(--text-2)">Several states impose additional requirements, and Canada CASL and EU GDPR are materially stricter, being consent-based rather than opt-out-based. None of this page is legal advice. Confirm your specific program with your own counsel.</p>
+
+        <div class="divider"></div>
+        <h2 class="mb2">Compliance questions</h2>
+        <%- include('partials/faqblock') %>
+      </div>
+      <div class="sticky"><%- include('partials/leadform', { formSource: 'compliance', formTitle: 'Talk to us' }) %></div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap"><%- include('partials/ctaband') %></div>
+</section>
+
+<%- include('partials/footer') %>

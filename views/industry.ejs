@@ -1,0 +1,92 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/crumbs') %>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="tags mb1">
+      <span class="pill gold"><%= ind.ticket %></span>
+      <span class="pill"><%= ind.cycle %></span>
+      <% if (ind.naics) { %><span class="pill">NAICS <%= ind.naics %></span><% } %>
+    </div>
+    <h1><%= ind.short %><br>MCA Email Leads</h1>
+    <p class="lede">Verified email data for <%= ind.noun %> — filtered to provable revenue and time in business, segmented by state and metro, and delivered straight into your pipeline.</p>
+    <div class="acts">
+      <a class="btn" href="/book">Get counts for this vertical</a>
+      <a class="btn ghost" href="#quote">Request pricing</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="two-col">
+      <div>
+        <h2>Why <%= ind.short.toLowerCase() %> operators take advances</h2>
+        <div class="spec mt2">
+          <% ind.capitalUses.forEach(function(u, i){ %>
+            <div class="spec-row"><dt>Use 0<%= i + 1 %></dt><dd><%= u %></dd></div>
+          <% }); %>
+        </div>
+
+        <h2 class="mt3">What makes this vertical fundable</h2>
+        <ul class="checks mt2">
+          <% ind.pains.forEach(function(p){ %><li><%= p %></li><% }); %>
+        </ul>
+
+        <h2 class="mt3">Timing signals worth targeting</h2>
+        <ul class="checks teal mt2">
+          <% ind.triggers.forEach(function(t){ %><li><%= t %></li><% }); %>
+        </ul>
+
+        <h2 class="mt3">Subject line angles that land</h2>
+        <div class="spec mt2">
+          <% ind.subjects.forEach(function(s, i){ %>
+            <div class="spec-row"><dt>Angle 0<%= i + 1 %></dt><dd><%= s %></dd></div>
+          <% }); %>
+          <div class="spec-row"><dt>Expect</dt><dd><%= ind.objection %></dd></div>
+        </div>
+
+        <h2 class="mt3">How to work the file</h2>
+        <ul class="checks mt2">
+          <% angles.forEach(function(a){ %><li><%= a %></li><% }); %>
+        </ul>
+
+        <div class="divider"></div>
+        <h2 class="mb2">Common questions</h2>
+        <%- include('partials/faqblock') %>
+      </div>
+
+      <div class="sticky">
+        <%- include('partials/leadform', { formSource: 'industry:' + ind.slug, formTitle: 'Counts for ' + ind.short }) %>
+        <div class="mt2">
+          <div class="mono mb1">How we deliver</div>
+          <ul class="checks" style="font-size:0.9rem">
+            <% proof.forEach(function(p){ %><li><%= p %></li><% }); %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Other verticals</div>
+      <h2>Also worth testing</h2>
+    </div>
+    <div class="grid c3">
+      <% related.forEach(function(r){ %>
+        <a class="card" href="/industries/<%= r.slug %>">
+          <span class="idx"><%= r.ticket %></span>
+          <h3><%= r.short %></h3>
+          <p><%= r.pains[0] %></p>
+        </a>
+      <% }); %>
+    </div>
+    <div class="mt3"><%- include('partials/ctaband') %></div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

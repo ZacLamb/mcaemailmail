@@ -1,0 +1,52 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/crumbs') %>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="eyebrow">About</div>
+    <h1>We build the list.<br>You fund the deal.</h1>
+    <p class="lede"><%= site.legalName %> supplies verified merchant email data and managed outbound to the merchant cash advance industry. We are not a funder and not a broker — we have no interest in your merchants, your lenders, or your commission.</p>
+    <div class="acts"><a class="btn" href="/book">Book a call</a><a class="btn ghost" href="/services">See services</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="two-col">
+      <div>
+        <h2>Why this exists</h2>
+        <p class="lede mt1">Most MCA shops are not short on offers. They are short on merchants who will pick up. The industry standard answer has been to buy the same UCC file everyone else bought and hammer it on the phone until the numbers stop working.</p>
+        <p style="color:var(--text-2)">Email is the channel that scales without headcount, and almost nobody in this vertical runs it well. The data is usually stale, the sending setup burns the shop's primary domain inside a month, and the sequence is one email that gets judged as a failed test. We fixed those three things and built a business around it.</p>
+
+        <h2 class="mt3">What we will not do</h2>
+        <ul class="checks mt2">
+          <li>Sell you a file we have not verified, then argue about bounces</li>
+          <li>Promise exclusivity on data we are also selling to three other shops</li>
+          <li>Tell you email beats your current channel when it does not</li>
+          <li>Lock you into an annual contract before you have seen a single funded deal</li>
+          <li>Send from your primary domain because it is faster to set up</li>
+        </ul>
+
+        <h2 class="mt3">How we work</h2>
+        <div class="spec mt2">
+          <div class="spec-row"><dt>Model</dt><dd>Data provider and managed outbound. No origination, no underwriting, no funding.</dd></div>
+          <div class="spec-row"><dt>Commitment</dt><dd>Start with a test pull. No annual contract required to begin.</dd></div>
+          <div class="spec-row"><dt>Verification</dt><dd>Syntax, domain, and mailbox-level checks before delivery, with rolling re-verification on held inventory.</dd></div>
+          <div class="spec-row"><dt>Suppression</dt><dd>Global opt-out list, permanent and honored across every account and campaign.</dd></div>
+          <div class="spec-row"><dt>Compliance posture</dt><dd>Built to CAN-SPAM. We are not a law firm and do not give legal advice.</dd></div>
+          <div class="spec-row"><dt>Support</dt><dd><%= site.hours %></dd></div>
+        </div>
+      </div>
+      <div class="sticky">
+        <%- include('partials/leadform', { formSource: 'about', formTitle: 'Start a conversation' }) %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap"><%- include('partials/ctaband') %></div>
+</section>
+
+<%- include('partials/footer') %>

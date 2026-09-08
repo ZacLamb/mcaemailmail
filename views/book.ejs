@@ -1,0 +1,80 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/crumbs') %>
+
+<section class="phero">
+  <div class="wrap">
+    <% if (submitted) { %>
+      <div class="tags mb1"><span class="pill teal"><span class="dot"></span>Details received</span></div>
+      <div class="eyebrow">Step 2 of 2</div>
+      <h1>Now pick<br>your time</h1>
+      <p class="lede">We have your criteria. Choose a slot below and we will have counts pulled against your box before the call starts, so the fifteen minutes goes to numbers rather than discovery.</p>
+    <% } else { %>
+      <div class="eyebrow">Book a call</div>
+      <h1>Data strategy call<br>&mdash; 15 minutes</h1>
+      <p class="lede">Bring your lender box. We pull live counts against your criteria, tell you what coverage looks like in your territory, and price a test pull. No deck, no follow-up sequence.</p>
+    <% } %>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="two-col">
+      <div>
+        <div class="cal-wrap">
+          <% if (site.ghlCalendarUrl) { %>
+            <iframe
+              src="<%= site.ghlCalendarUrl %>"
+              title="Book a data strategy call"
+              scrolling="no"
+              loading="lazy"
+              id="bookingCalendar"></iframe>
+          <% } else { %>
+            <div class="cal-fallback">
+              <div class="eyebrow plain" style="justify-content:center">Calendar not connected</div>
+              <h3 class="mb1">Set GHL_CALENDAR_URL to embed your booking widget</h3>
+              <p class="mb2">Add your GoHighLevel calendar embed URL as an environment variable in Railway and this panel will render the live scheduler.</p>
+              <a class="btn" href="tel:<%= site.phoneHref %>">Call <%= site.phone %></a>
+            </div>
+          <% } %>
+        </div>
+      </div>
+
+      <div class="sticky">
+        <div class="spec">
+          <div class="spec-row"><dt>Length</dt><dd>15 minutes, video or phone</dd></div>
+          <div class="spec-row"><dt>Who you speak to</dt><dd>Someone who can pull counts live, not an SDR</dd></div>
+          <div class="spec-row"><dt>You leave with</dt><dd>Counts against your box, coverage by territory, and pricing</dd></div>
+          <div class="spec-row"><dt>Cost</dt><dd>Nothing, and no obligation to buy</dd></div>
+        </div>
+
+        <div class="mt2">
+          <div class="mono mb1">Bring with you</div>
+          <ul class="checks" style="font-size:0.92rem">
+            <li>Revenue floor and time in business minimums</li>
+            <li>Restricted industries your lenders will not touch</li>
+            <li>States or metros you actually work</li>
+            <li>Monthly volume you can realistically follow up on</li>
+            <li>Where leads need to be delivered</li>
+          </ul>
+        </div>
+
+        <% if (!submitted) { %>
+          <div class="mt2">
+            <div class="mono mb1">Prefer to send criteria first?</div>
+            <a class="btn ghost block" href="/contact">Submit your box &rarr;</a>
+          </div>
+        <% } %>
+
+        <div class="mt2">
+          <div class="mono mb1">Or reach us directly</div>
+          <a class="btn ghost block mb1" href="tel:<%= site.phoneHref %>"><%= site.phone %></a>
+          <a class="btn ghost block" href="mailto:<%= site.email %>">Email us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="https://link.msgsndr.com/js/form_embed.js" defer></script>
+<%- include('partials/footer') %>

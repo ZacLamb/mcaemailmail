@@ -1,0 +1,51 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/crumbs') %>
+
+<section class="phero">
+  <div class="wrap narrow">
+    <div class="tags mb1">
+      <% article.tags.forEach(function(t){ %><span class="pill gold"><%= t %></span><% }); %>
+      <span class="pill"><%= article.readMins %> min read</span>
+    </div>
+    <h1><%= article.title %></h1>
+    <p class="lede"><%= article.dek %></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="two-col">
+      <article class="prose">
+        <% article.body.forEach(function(sec){ %>
+          <h2><%= sec[0] %></h2>
+          <p><%= sec[1] %></p>
+        <% }); %>
+
+        <div class="divider"></div>
+        <p class="mono">Published <%= article.date %> &middot; <%= site.name %></p>
+      </article>
+
+      <div class="sticky">
+        <%- include('partials/leadform', { formSource: 'article:' + article.slug, formTitle: 'Get counts &amp; pricing' }) %>
+        <div class="mt2">
+          <div class="mono mb1">More guides</div>
+          <div class="grid">
+            <% more.forEach(function(m){ %>
+              <a class="card" href="/resources/<%= m.slug %>">
+                <h3 style="font-size:1.02rem"><%= m.title %></h3>
+                <p style="font-size:0.87rem"><%= m.dek %></p>
+              </a>
+            <% }); %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap"><%- include('partials/ctaband') %></div>
+</section>
+
+<%- include('partials/footer') %>

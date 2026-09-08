@@ -1,0 +1,82 @@
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col foot-about">
+        <a class="brand" href="/" style="margin-bottom:1rem">
+          <span class="brand-mark">M</span>
+          <span><span class="brand-name"><%= site.name %></span></span>
+        </a>
+        <p><%= site.tagline %> Built for ISOs, brokers, and direct funders who would rather work a qualified file than a phone book.</p>
+        <div class="tags mt2">
+          <span class="pill teal"><span class="dot"></span>Accepting new accounts</span>
+        </div>
+      </div>
+
+      <div class="foot-col">
+        <h4>Data</h4>
+        <ul>
+          <% services.filter(function(s){return s.category==='Core Data'}).forEach(function(s){ %>
+            <li><a href="/services/<%= s.slug %>"><%= s.name %></a></li>
+          <% }); %>
+          <li><a href="/services/ucc-data-email-append">UCC Email Append</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Services</h4>
+        <ul>
+          <% services.filter(function(s){return s.category!=='Core Data'}).slice(0,6).forEach(function(s){ %>
+            <li><a href="/services/<%= s.slug %>"><%= s.name %></a></li>
+          <% }); %>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Industries</h4>
+        <ul>
+          <% industries.filter(function(i){return i.combo}).slice(0,8).forEach(function(i){ %>
+            <li><a href="/industries/<%= i.slug %>"><%= i.short %></a></li>
+          <% }); %>
+          <li><a href="/industries">All industries &rarr;</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/services/ucc-data-email-append">UCC Data</a></li>
+          <li><a href="/compare">Comparisons</a></li>
+          <li><a href="/resources">Resources</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/data-and-compliance">Data &amp; Compliance</a></li>
+          <li><a href="/book">Book a call</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <p class="disclaimer">
+      <%= site.legalName %> is a data and marketing services provider. We are not a lender, a funder, or a broker, and we do not originate, underwrite, approve, or fund merchant cash advances or any other financing.
+      No content on this site is legal, tax, or financial advice. Outbound email programs are subject to the CAN-SPAM Act and, depending on where you send, additional state and international requirements — clients are responsible for their own compliance and should confirm their program with counsel.
+      Coverage figures, turnaround times, and market descriptions are general and vary by request.
+    </p>
+  </div>
+
+  <div class="foot-bottom">
+    <div class="wrap">
+      <span>&copy; <%= year %> <%= site.legalName %> &middot; <%= site.address.full %></span>
+      <span>
+        <a href="/privacy">Privacy</a> &nbsp;&middot;&nbsp;
+        <a href="/terms">Terms</a> &nbsp;&middot;&nbsp;
+        <a href="/opt-out">Opt Out</a> &nbsp;&middot;&nbsp;
+        <a href="/sitemap.xml">Sitemap</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/site.js" defer></script>
+</body>
+</html>

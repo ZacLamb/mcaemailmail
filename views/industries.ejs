@@ -1,0 +1,60 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/crumbs') %>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="eyebrow">Verticals</div>
+    <h1>MCA leads<br>by industry</h1>
+    <p class="lede">A restaurant owner and a staffing agency owner take advances for completely different reasons, on completely different timelines, and object for completely different reasons. Segment the data and the copy accordingly.</p>
+    <div class="acts"><a class="btn" href="/book">Scope a vertical</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Core verticals</div>
+      <h2>Highest volume, highest fund rate</h2>
+      <p>The deepest files we carry and the ones that place most consistently with lenders.</p>
+    </div>
+    <div class="grid c3">
+      <% industries.filter(function(i){return i.combo}).forEach(function(i){ %>
+        <a class="card" href="/industries/<%= i.slug %>">
+          <span class="idx"><%= i.ticket %> &middot; <%= i.cycle.split('—')[0].trim() %></span>
+          <h3><%= i.name %></h3>
+          <p><%= i.pains[0] %></p>
+          <span class="arrow">View vertical &rarr;</span>
+        </a>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Additional verticals</div>
+      <h2>Also covered</h2>
+      <p>Lower volume but frequently higher intent — several of these are the least competitive inboxes in the industry.</p>
+    </div>
+    <div class="grid c3">
+      <% industries.filter(function(i){return !i.combo}).forEach(function(i){ %>
+        <a class="card" href="/industries/<%= i.slug %>">
+          <span class="idx"><%= i.ticket %></span>
+          <h3><%= i.name %></h3>
+          <p><%= i.pains[0] %></p>
+          <span class="arrow">View vertical &rarr;</span>
+        </a>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <%- include('partials/ctaband', { ctaHead: 'Working a vertical we have not listed?', ctaLine: 'We build custom lists to a NAICS or SIC specification. Tell us the industry and we will tell you the coverage.' }) %>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

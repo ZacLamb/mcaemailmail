@@ -1,0 +1,31 @@
+<div class="topbar">
+  <div class="wrap">
+    <div class="tb-left">Verified merchant email data &middot; 50 states + DC &middot; CSV, API, or direct CRM delivery</div>
+    <div class="tb-right">
+      <a href="tel:<%= site.phoneHref %>"><%= site.phone %></a>
+      <a href="mailto:<%= site.email %>"><%= site.email %></a>
+    </div>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <span class="brand-mark">M</span>
+      <span>
+        <span class="brand-name"><%= site.name %></span>
+        <span class="brand-sub" style="display:block">Merchant data &middot; MCA</span>
+      </span>
+    </a>
+
+    <nav class="main" id="mainnav">
+      <% nav.forEach(function(item){ %>
+        <a href="<%= item.href %>" class="<%= path === item.href || path.indexOf(item.href + '/') === 0 ? 'active' : '' %>"><%= item.label %></a>
+      <% }); %>
+      <a href="/contact" class="<%= path === '/contact' ? 'active' : '' %>">Contact</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">MENU</button>
+    <a class="btn sm" href="/book">Book a call</a>
+  </div>
+</header>

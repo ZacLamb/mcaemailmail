@@ -1,0 +1,68 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/crumbs') %>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="eyebrow">Pricing</div>
+    <h1>How we quote,<br>and what moves it</h1>
+    <p class="lede">We do not publish a rate card, because a single number would be wrong for almost everyone who reads it. Cost per record swings by an order of magnitude depending on exclusivity, age, and how tight your box is. Here is exactly what drives it.</p>
+    <div class="acts">
+      <a class="btn" href="/book">Get a quote on your box</a>
+      <a class="btn ghost" href="#quote">Request counts</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Cost drivers</div>
+      <h2>Five things set your price</h2>
+    </div>
+    <div class="grid c2">
+      <div class="card"><span class="idx">01</span><h3>Exclusivity</h3><p>The single largest driver. Exclusive records are permanently suppressed from every other buyer, which costs materially more than shared and is worth it only if you actually run a multi-touch sequence.</p></div>
+      <div class="card"><span class="idx">02</span><h3>Freshness</h3><p>Real-time intent sits at the top of the range. Aged buckets at 90, 180, and 365+ days sit at the bottom. Aged is often the better cost per funded deal if you sequence it properly.</p></div>
+      <div class="card"><span class="idx">03</span><h3>Filter tightness</h3><p>A national pull with a wide revenue band is cheap per record. Single-state, single-vertical, position-filtered, with a high revenue floor is not — you are paying for the records we discard.</p></div>
+      <div class="card"><span class="idx">04</span><h3>Volume and commitment</h3><p>Cost per record drops with volume and drops further on a standing weekly or monthly program versus one-off pulls. Ongoing beats sporadic on price every time.</p></div>
+      <div class="card"><span class="idx">05</span><h3>Delivery and enrichment</h3><p>A CSV is the baseline. CRM push with mapping and assignment, phone or owner-name append, and suppression against your existing database each add to the build.</p></div>
+      <div class="card"><span class="idx">06</span><h3>Managed vs. raw</h3><p>Managed campaigns are priced separately from data, because you are buying copy, infrastructure, sending, and reply handling on top of records. Those are quoted as a monthly program.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section paper">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">The number that matters</div>
+      <h2>Stop comparing on cost per record</h2>
+      <p>It is the easiest number to compare and the least useful one. A source at fractions of a cent and a source at hundreds of dollars per unit can produce an identical cost per funded deal.</p>
+    </div>
+    <div class="spec">
+      <div class="spec-row"><dt>What to track</dt><dd>Records purchased &rarr; deliverable &rarr; replied &rarr; qualified &rarr; submitted &rarr; approved &rarr; funded &rarr; commission</dd></div>
+      <div class="spec-row"><dt>How to track it</dt><dd>By cohort and pull date, not by calendar month. Records bought in March fund in May; blending months hides which purchase actually worked.</dd></div>
+      <div class="spec-row"><dt>Before switching vendors</dt><dd>Check your sequence length first. The gap between a one-touch and a seven-touch campaign is usually larger than the gap between any two data sources.</dd></div>
+      <div class="spec-row"><dt>Test size</dt><dd>Give a source enough volume through a full sequence to read a real signal. Small tests with one email are coin flips dressed as decisions.</dd></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="two-col">
+      <div>
+        <h2 class="mb2">Pricing questions</h2>
+        <%- include('partials/faqblock') %>
+      </div>
+      <div class="sticky">
+        <%- include('partials/leadform', { formSource: 'pricing', formTitle: 'Get a real quote' }) %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap"><%- include('partials/ctaband', { ctaHead: 'Fifteen minutes, actual numbers', ctaLine: 'We pull counts against your criteria on the call, then price it. No proposal deck, no follow-up sequence.' }) %></div>
+</section>
+
+<%- include('partials/footer') %>

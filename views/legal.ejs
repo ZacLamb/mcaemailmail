@@ -1,0 +1,118 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/crumbs') %>
+
+<section class="phero">
+  <div class="wrap narrow">
+    <div class="eyebrow">Legal</div>
+    <h1><%= doc === 'privacy' ? 'Privacy Policy' : doc === 'terms' ? 'Terms of Service' : 'Opt Out' %></h1>
+    <p class="lede">Last updated <%= year %>. Questions on any of this go to <a href="mailto:<%= site.email %>" style="color:var(--gold)"><%= site.email %></a>.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="two-col">
+      <article class="prose">
+
+        <% if (doc === 'privacy') { %>
+          <p>This policy explains what <%= site.legalName %> collects through this website, how it is used, and the choices available to you. It covers this website only — data we license to clients is governed by our client agreements and described on our <a href="/data-and-compliance" style="color:var(--gold)">Data &amp; Compliance</a> page.</p>
+
+          <h2>Information we collect</h2>
+          <p>When you submit a form we collect the information you provide: name, business email, phone number, company name, and the campaign criteria you describe. When you browse we may collect standard technical information such as IP address, browser type, referring page, and pages visited, along with analytics identifiers if analytics is enabled.</p>
+
+          <h2>How we use it</h2>
+          <p>To respond to your inquiry, prepare counts and pricing against your criteria, schedule and hold a call, deliver services you request, and send you occasional communications about our services. We use technical and analytics data to understand site performance and improve the site.</p>
+
+          <h2>How we share it</h2>
+          <p>We share information with service providers who operate parts of our business on our behalf — hosting, CRM, scheduling, email delivery, and analytics — under obligations to protect it. We may disclose information where required by law or to protect our legal rights. We do not sell information submitted through this website's forms to third parties for their own marketing.</p>
+
+          <h2>Cookies and analytics</h2>
+          <p>This site may use cookies and similar technologies for essential functionality and, where enabled, analytics measurement. Most browsers allow you to refuse or delete cookies; some site functionality may not work correctly if you do.</p>
+
+          <h2>Retention</h2>
+          <p>We retain inquiry information for as long as needed to serve you and to meet legal, accounting, and reporting obligations, then delete or de-identify it.</p>
+
+          <h2>Your choices</h2>
+          <p>You can unsubscribe from marketing email at any time using the link in any message, or request access to, correction of, or deletion of your information by emailing <a href="mailto:<%= site.email %>" style="color:var(--gold)"><%= site.email %></a>. To be removed from our marketing data entirely, use our <a href="/opt-out" style="color:var(--gold)">opt-out page</a>. Residents of certain states and countries have additional rights; contact us and we will honor applicable requests.</p>
+
+          <h2>Security</h2>
+          <p>We use reasonable administrative, technical, and physical safeguards to protect information. No method of transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
+
+          <h2>Children</h2>
+          <p>This is a business-to-business service not directed to children, and we do not knowingly collect information from anyone under 18.</p>
+
+          <h2>Changes</h2>
+          <p>We may update this policy from time to time. Material changes will be reflected by an updated date on this page.</p>
+
+          <h2>Contact</h2>
+          <p><%= site.legalName %>, <%= site.address.line1 %>, <%= site.address.line2 %>. Email <a href="mailto:<%= site.email %>" style="color:var(--gold)"><%= site.email %></a>, phone <%= site.phone %>.</p>
+
+        <% } else if (doc === 'terms') { %>
+          <p>These terms govern your use of this website and, where applicable, our data and marketing services. By using the site you agree to them.</p>
+
+          <h2>What we are, and are not</h2>
+          <p><%= site.legalName %> is a data and marketing services provider. We are not a lender, a funder, a broker, or a financial advisor. We do not originate, underwrite, approve, or fund merchant cash advances or any other financing, and nothing on this site is an offer of credit.</p>
+
+          <h2>No professional advice</h2>
+          <p>Content on this site is general information about outbound marketing and data practices. It is not legal, tax, compliance, or financial advice, and it does not create a professional relationship. Confirm your own program with qualified counsel.</p>
+
+          <h2>Services and quotes</h2>
+          <p>Coverage figures, counts, turnaround times, and pricing discussed on calls or in proposals are estimates based on the criteria you supply and are subject to a written agreement. Specific service terms, including replacement windows and exclusivity, are set out in that agreement and control over anything on this site.</p>
+
+          <h2>Your responsibilities as a client</h2>
+          <p>If you send email using data we supply, you are the sender and you are responsible for your own compliance with the CAN-SPAM Act and any other applicable federal, state, or international law. That includes accurate sender identity, non-deceptive subject lines, a valid physical postal address, and honoring opt-outs promptly. You agree not to use our data for consumer marketing, for any unlawful purpose, or in any manner that would violate applicable law.</p>
+
+          <h2>Data license and restrictions</h2>
+          <p>Data supplied to you is licensed for your own use under the terms of your agreement. You may not resell, sublicense, redistribute, or publish it, and you may not use it to build a competing data product.</p>
+
+          <h2>Intellectual property</h2>
+          <p>All content on this site, including text, design, and code, is owned by <%= site.legalName %> or its licensors and may not be copied or reproduced without permission.</p>
+
+          <h2>Disclaimer of warranties</h2>
+          <p>The site and its content are provided as is, without warranties of any kind to the fullest extent permitted by law. We do not warrant that the site will be uninterrupted or error free. Marketing results depend on factors outside our control, including your offer, your copy, your follow-up, and market conditions, and we make no guarantee of any specific outcome.</p>
+
+          <h2>Limitation of liability</h2>
+          <p>To the fullest extent permitted by law, <%= site.legalName %> is not liable for indirect, incidental, special, consequential, or punitive damages, or for lost profits or lost revenue, arising from your use of this site.</p>
+
+          <h2>Governing law</h2>
+          <p>These terms are governed by the laws of the State of Wyoming, without regard to conflict of law principles.</p>
+
+          <h2>Changes</h2>
+          <p>We may update these terms. Continued use of the site after changes are posted constitutes acceptance.</p>
+
+        <% } else { %>
+          <p>Use this page to be permanently removed from our marketing data and from every campaign we or our clients run using our records.</p>
+
+          <h2>What removal does</h2>
+          <p>Your email address and business record are added to our global suppression list. That list is permanent, applies across every account and every campaign, and is checked before any file is delivered. Once suppressed, your record cannot be re-added by a future data pull.</p>
+
+          <h2>How to request removal</h2>
+          <p>Email <a href="mailto:<%= site.email %>?subject=Opt%20Out%20Request" style="color:var(--gold)"><%= site.email %></a> with the subject line "Opt Out" and include the email address or addresses you want removed, plus your business name if you want the whole record suppressed rather than one address. You can also use the unsubscribe link in any message you received, which processes immediately.</p>
+
+          <h2>Timing</h2>
+          <p>Requests are processed promptly and well inside the ten business day window required by the CAN-SPAM Act. In practice, suppression is applied the same business day.</p>
+
+          <h2>If you received email from one of our clients</h2>
+          <p>Suppressing your record with us removes it from files we supply going forward. It does not remove you from data that client obtained from another source. If you received a message from a specific sender, use the unsubscribe link in that message as well, and tell us who it was so we can suppress the record on our side.</p>
+
+          <h2>Questions</h2>
+          <p>Write to <a href="mailto:<%= site.email %>" style="color:var(--gold)"><%= site.email %></a> or call <%= site.phone %>. Mailing address: <%= site.legalName %>, <%= site.address.line1 %>, <%= site.address.line2 %>.</p>
+        <% } %>
+
+      </article>
+
+      <div class="sticky">
+        <div class="spec">
+          <div class="spec-row"><dt>Privacy</dt><dd><a href="/privacy" style="color:var(--gold)">Privacy Policy</a></dd></div>
+          <div class="spec-row"><dt>Terms</dt><dd><a href="/terms" style="color:var(--gold)">Terms of Service</a></dd></div>
+          <div class="spec-row"><dt>Opt out</dt><dd><a href="/opt-out" style="color:var(--gold)">Removal request</a></dd></div>
+          <div class="spec-row"><dt>Data practices</dt><dd><a href="/data-and-compliance" style="color:var(--gold)">Data &amp; Compliance</a></dd></div>
+          <div class="spec-row"><dt>Contact</dt><dd><a href="mailto:<%= site.email %>" style="color:var(--gold)"><%= site.email %></a></dd></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

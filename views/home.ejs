@@ -1,0 +1,212 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="rv">
+        <div class="eyebrow">Merchant data for the MCA industry</div>
+        <h1>Verified merchant<br><span class="hl">email leads</span><br><span class="out">that fund.</span></h1>
+        <p class="lede mt2">
+          We build, verify, and deliver business email data for merchant cash advance shops — filtered to your lender box, deduped against your CRM, and in your pipeline the same day. Exclusive or shared. Fresh or aged. National or a single metro.
+        </p>
+        <div class="hero-cta">
+          <a class="btn" href="/book">Book a data strategy call</a>
+          <a class="btn ghost" href="/services">See every service</a>
+        </div>
+        <ul class="hero-trust">
+          <% site.trustPoints.forEach(function(t){ %><li><%= t %></li><% }); %>
+        </ul>
+      </div>
+
+      <div class="rv">
+        <%- include('partials/leadform', { formSource: 'homepage-hero', formTitle: 'Request counts &amp; pricing' }) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="statbar">
+    <div class="wrap">
+      <% site.stats.forEach(function(s){ %>
+        <div class="cell">
+          <div class="v"><%= s.value %></div>
+          <div class="l"><%= s.label %></div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What we supply</div>
+      <h2>Data, appends, and managed outbound</h2>
+      <p>Most shops need more than a list. Pick the layer you are missing — raw verified records, an append onto data you already own, or a fully managed campaign that hands you conversations instead of a spreadsheet.</p>
+    </div>
+
+    <div class="grid c3">
+      <% featuredServices.forEach(function(s, i){ %>
+        <a class="card" href="/services/<%= s.slug %>">
+          <span class="idx">0<%= i + 1 %> &middot; <%= s.category %></span>
+          <h3><%= s.name %></h3>
+          <p><%= s.tagline %></p>
+          <span class="arrow">View service &rarr;</span>
+        </a>
+      <% }); %>
+    </div>
+
+    <div class="center mt3">
+      <a class="btn ghost" href="/services">All <%= services.length %> services &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <div class="two-col">
+      <div>
+        <div class="eyebrow">How it runs</div>
+        <h2>From lender box to booked call</h2>
+        <p class="lede mt1">No portal to learn, no annual contract to sign before you know whether the data works. We scope, pull, deliver, and you judge it on funded deals.</p>
+
+        <div class="steps mt2">
+          <div class="step">
+            <h3>Scope the box</h3>
+            <p>Fifteen minutes on a call to define revenue floor, time in business, position, industry inclusions and exclusions, and geography. We pull counts live against those criteria so you know the universe before you spend anything.</p>
+          </div>
+          <div class="step">
+            <h3>Build and verify</h3>
+            <p>Records are assembled to your specification, run through syntax, domain, and mailbox-level verification, then deduped against your existing CRM and our global opt-out suppression list.</p>
+          </div>
+          <div class="step">
+            <h3>Deliver where you work</h3>
+            <p>CSV or XLSX, a direct push into GoHighLevel or your CRM with tags and owner assignment applied, a webhook per record, or a scheduled SFTP drop. Your choice, set once.</p>
+          </div>
+          <div class="step">
+            <h3>Sequence and measure</h3>
+            <p>Run it yourself or hand it to us. Either way, judge the source on cost per funded deal by cohort — not on cost per record, which tells you almost nothing.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sticky">
+        <div class="spec">
+          <div class="spec-row"><dt>Coverage</dt><dd>50 states + DC, 200+ metro markets</dd></div>
+          <div class="spec-row"><dt>Exclusivity</dt><dd>Exclusive, shared, or territory-locked</dd></div>
+          <div class="spec-row"><dt>Freshness</dt><dd>Real-time through 365+ day aged</dd></div>
+          <div class="spec-row"><dt>Filters</dt><dd>Revenue, TIB, NAICS/SIC, state, metro, position</dd></div>
+          <div class="spec-row"><dt>Delivery</dt><dd>CSV &middot; CRM push &middot; Webhook &middot; API &middot; SFTP</dd></div>
+          <div class="spec-row"><dt>Turnaround</dt><dd>Standard pulls under 24 hours</dd></div>
+          <div class="spec-row"><dt>Replacements</dt><dd>Hard bounces credited inside the window</dd></div>
+        </div>
+
+        <div class="mt2">
+          <div class="mono mb1">Integrations</div>
+          <div class="tags">
+            <% site.integrations.forEach(function(x){ %><span class="pill"><%= x %></span><% }); %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Verticals</div>
+      <h2>Segmented by the industries that actually fund</h2>
+      <p>Copy that names a merchant's specific situation outperforms generic funding language by a wide margin. Every vertical below comes with its own funding triggers, typical ticket size, and the objection your reps will hit.</p>
+    </div>
+
+    <div class="grid c4">
+      <% topIndustries.forEach(function(i){ %>
+        <a class="card" href="/industries/<%= i.slug %>">
+          <span class="idx"><%= i.ticket %></span>
+          <h3><%= i.short %></h3>
+          <p><%= i.pains[0] %></p>
+          <span class="arrow">View data &rarr;</span>
+        </a>
+      <% }); %>
+    </div>
+
+    <div class="center mt3"><a class="btn ghost" href="/industries">All <%= industries.length %> verticals &rarr;</a></div>
+  </div>
+</section>
+
+<section class="section paper">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Straight comparisons</div>
+      <h2>Where email actually beats the alternatives — and where it does not</h2>
+      <p>We sell data, so take this with the appropriate salt. But pretending email wins every comparison would waste your time and ours. Here is the honest version.</p>
+    </div>
+
+    <div class="grid c2">
+      <% comparisons.forEach(function(cp){ %>
+        <a class="card" href="/compare/<%= cp.slug %>">
+          <span class="idx"><%= cp.a %> vs <%= cp.b %></span>
+          <h3><%= cp.title %></h3>
+          <p><%= cp.verdict %></p>
+          <span class="arrow" style="color:#8a6a12">Read the breakdown &rarr;</span>
+        </a>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Lead types</div>
+      <h2>Pick the file that fits your floor</h2>
+      <p>Exclusivity and freshness are the two dials that move both price and close rate. Most shops run a blend rather than committing to one.</p>
+    </div>
+    <div class="linkgrid">
+      <a href="/services/exclusive-mca-leads"><span>Exclusive MCA leads</span><span class="ab">&rarr;</span></a>
+      <a href="/services/mca-email-leads"><span>Shared MCA email leads</span><span class="ab">&rarr;</span></a>
+      <a href="/services/aged-mca-leads"><span>Aged MCA leads</span><span class="ab">&rarr;</span></a>
+      <a href="/services/mca-renewal-leads"><span>Renewal &amp; second position</span><span class="ab">&rarr;</span></a>
+      <a href="/services/ucc-data-email-append"><span>UCC data + email append</span><span class="ab">&rarr;</span></a>
+      <a href="/services/email-appending-data-enrichment"><span>Append to your own list</span><span class="ab">&rarr;</span></a>
+      <a href="/services/custom-merchant-list-building"><span>Custom list build</span><span class="ab">&rarr;</span></a>
+      <a href="/services/done-for-you-email-campaigns"><span>Managed campaigns</span><span class="ab">&rarr;</span></a>
+    </div>
+    <div class="center mt3"><a class="btn ghost" href="/services">All services &rarr;</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="two-col">
+      <div>
+        <div class="eyebrow">Questions</div>
+        <h2 class="mb2">The things every shop asks first</h2>
+        <%- include('partials/faqblock') %>
+        <div class="mt2"><a class="btn ghost" href="/faq">All questions &rarr;</a></div>
+      </div>
+      <div>
+        <div class="eyebrow">Guides</div>
+        <h2 class="mb2">Resources</h2>
+        <div class="grid">
+          <% articles.forEach(function(a){ %>
+            <a class="card" href="/resources/<%= a.slug %>">
+              <span class="idx"><%= a.tags.join(' · ') %> &middot; <%= a.readMins %> min</span>
+              <h3><%= a.title %></h3>
+              <p><%= a.dek %></p>
+            </a>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <%- include('partials/ctaband', { ctaHead: 'Bring your lender box. Leave with counts.', ctaLine: 'Fifteen minutes to scope criteria, confirm coverage, and price a test pull against your actual filters.' }) %>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

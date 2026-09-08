@@ -1,0 +1,30 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/crumbs') %>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="eyebrow">Channel comparisons</div>
+    <h1>Email leads<br>versus everything else</h1>
+    <p class="lede">We sell data, so weigh these accordingly. But every comparison below includes the cases where the other channel is the better call — because a shop that buys the wrong thing does not buy twice.</p>
+    <div class="acts"><a class="btn" href="/book">Talk through your mix</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="grid c2">
+      <% comparisons.forEach(function(cp, i){ %>
+        <a class="card" href="/compare/<%= cp.slug %>">
+          <span class="idx">0<%= i + 1 %> &middot; <%= cp.a %> vs <%= cp.b %></span>
+          <h3><%= cp.title %></h3>
+          <p><%= cp.verdict %></p>
+          <span class="arrow">Full breakdown &rarr;</span>
+        </a>
+      <% }); %>
+    </div>
+    <div class="mt3"><%- include('partials/ctaband', { ctaHead: 'Not sure which channel fits your floor?', ctaLine: 'Tell us your headcount, budget, and current close rate and we will tell you honestly whether email is the right next investment.' }) %></div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

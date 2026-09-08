@@ -1,0 +1,40 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/crumbs') %>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="eyebrow">Contact</div>
+    <h1>Talk to a<br>real person</h1>
+    <p class="lede">Fastest route is the form — it captures your box so we can pull counts before we speak. Phone and email work too.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="two-col">
+      <div>
+        <div class="spec">
+          <div class="spec-row"><dt>Phone</dt><dd><a href="tel:<%= site.phoneHref %>" style="color:var(--gold)"><%= site.phone %></a></dd></div>
+          <div class="spec-row"><dt>Email</dt><dd><a href="mailto:<%= site.email %>" style="color:var(--gold)"><%= site.email %></a></dd></div>
+          <div class="spec-row"><dt>Hours</dt><dd><%= site.hours %></dd></div>
+          <div class="spec-row"><dt>Mailing address</dt><dd><%= site.address.line1 %><br><%= site.address.line2 %></dd></div>
+          <div class="spec-row"><dt>Book directly</dt><dd><a href="/book" style="color:var(--gold)">Pick a time on the calendar &rarr;</a></dd></div>
+          <div class="spec-row"><dt>Opt out</dt><dd><a href="/opt-out" style="color:var(--gold)">Remove yourself from our data &rarr;</a></dd></div>
+        </div>
+
+        <h2 class="mt3">What to bring to the call</h2>
+        <ul class="checks mt2">
+          <li>Your lender box: revenue floor, time in business, position, restricted industries</li>
+          <li>Territory — states, metros, or nationwide</li>
+          <li>Roughly how many records a month you can actually work</li>
+          <li>Where leads need to land: CRM, CSV, webhook</li>
+          <li>Whether you want raw data or a managed campaign</li>
+        </ul>
+      </div>
+      <div class="sticky"><%- include('partials/leadform', { formSource: 'contact', formTitle: 'Send us your criteria' }) %></div>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
