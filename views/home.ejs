@@ -1,8 +1,7 @@
 <%- include('partials/head') %>
 <%- include('partials/header') %>
 
-<section class="hero photo">
-  <div class="hero-media"><img src="<%= img.hero %>" alt="" fetchpriority="high"></div>
+<section class="hero">
   <div class="wrap">
     <div class="hero-grid">
       <div class="rv">
@@ -21,6 +20,10 @@
       </div>
 
       <div class="rv">
+        <div class="hero-shot mb2">
+          <img src="<%= img.hero %>" alt="A small business owner reviewing figures after hours" fetchpriority="high">
+          <span class="tag"><span class="dot"></span>4.1M+ merchant records</span>
+        </div>
         <%- include('partials/leadform', { formSource: 'homepage-hero', formTitle: 'Request counts &amp; pricing' }) %>
       </div>
     </div>
