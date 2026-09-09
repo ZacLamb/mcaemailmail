@@ -1,7 +1,8 @@
 <%- include('partials/head') %>
 <%- include('partials/header') %>
 
-<section class="hero">
+<section class="hero photo">
+  <div class="hero-media"><img src="<%= img.hero %>" alt="" fetchpriority="high"></div>
   <div class="wrap">
     <div class="hero-grid">
       <div class="rv">
@@ -22,6 +23,13 @@
       <div class="rv">
         <%- include('partials/leadform', { formSource: 'homepage-hero', formTitle: 'Request counts &amp; pricing' }) %>
       </div>
+    </div>
+  </div>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Exclusive &amp; shared</span><span>Aged 30–365+ days</span><span>UCC email append</span><span>Renewal &amp; 2nd position</span><span>Mailbox-verified</span><span>CRM push</span><span>Custom list builds</span><span>Managed campaigns</span>
+      <span>Exclusive &amp; shared</span><span>Aged 30–365+ days</span><span>UCC email append</span><span>Renewal &amp; 2nd position</span><span>Mailbox-verified</span><span>CRM push</span><span>Custom list builds</span><span>Managed campaigns</span>
     </div>
   </div>
 
@@ -66,6 +74,14 @@
   <div class="wrap">
     <div class="two-col">
       <div>
+        <div class="split mb2">
+          <div class="split-media"><img src="<%= img.data %>" alt="" loading="lazy"></div>
+          <div class="split-body">
+            <div class="eyebrow">The difference</div>
+            <h3 style="font-size:clamp(1.3rem,2.4vw,1.8rem);text-transform:uppercase">Filtered before you pay,<br>not after</h3>
+            <p style="color:var(--text-2);font-size:.94rem;margin-top:.8rem">Most vendors sell you the universe and let you sort it. We build to your lender box first, verify at the mailbox, then dedupe against your CRM — so the count you buy is the count you can work.</p>
+          </div>
+        </div>
         <div class="eyebrow">How it runs</div>
         <h2>From lender box to booked call</h2>
         <p class="lede mt1">No portal to learn, no annual contract to sign before you know whether the data works. We scope, pull, deliver, and you judge it on funded deals.</p>
@@ -122,11 +138,13 @@
 
     <div class="grid c4">
       <% topIndustries.forEach(function(i){ %>
-        <a class="card" href="/industries/<%= i.slug %>">
-          <span class="idx"><%= i.ticket %></span>
-          <h3><%= i.short %></h3>
-          <p><%= i.pains[0] %></p>
-          <span class="arrow">View data &rarr;</span>
+        <a class="card shot" href="/industries/<%= i.slug %>">
+          <span class="shot-img"><img src="<%= img.forVertical(i.slug) %>" alt="" loading="lazy"></span>
+          <span class="shot-body">
+            <span class="idx"><%= i.ticket %></span>
+            <h3><%= i.short %></h3>
+            <span class="arrow">View data &rarr;</span>
+          </span>
         </a>
       <% }); %>
     </div>
@@ -203,7 +221,8 @@
   </div>
 </section>
 
-<section class="section alt">
+<section class="section textured">
+  <div class="plate"><img src="<%= img.texture %>" alt="" loading="lazy"></div>
   <div class="wrap">
     <%- include('partials/ctaband', { ctaHead: 'Bring your lender box. Leave with counts.', ctaLine: 'Fifteen minutes to scope criteria, confirm coverage, and price a test pull against your actual filters.' }) %>
   </div>

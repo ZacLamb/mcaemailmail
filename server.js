@@ -5,6 +5,7 @@ const compression = require('compression');
 const site = require('./data/site');
 const { industries, byIndustrySlug } = require('./data/industries');
 const catalog = require('./data/catalog');
+const images = require('./data/images');
 const content = require('./lib/content');
 
 const app = express();
@@ -46,6 +47,7 @@ app.use((req, res, next) => {
   res.locals.services = catalog.services;
   res.locals.faqBank = catalog.faqBank;
   res.locals.c = content;
+  res.locals.img = images;
   res.locals.breadcrumbs = [];
   res.locals.schema = null;
   res.locals.ogType = 'website';

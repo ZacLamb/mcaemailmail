@@ -20,11 +20,13 @@
     </div>
     <div class="grid c3">
       <% industries.filter(function(i){return i.combo}).forEach(function(i){ %>
-        <a class="card" href="/industries/<%= i.slug %>">
-          <span class="idx"><%= i.ticket %> &middot; <%= i.cycle.split('—')[0].trim() %></span>
-          <h3><%= i.name %></h3>
-          <p><%= i.pains[0] %></p>
-          <span class="arrow">View vertical &rarr;</span>
+        <a class="card shot" href="/industries/<%= i.slug %>">
+          <span class="shot-img"><img src="<%= img.forVertical(i.slug) %>" alt="" loading="lazy"></span>
+          <span class="shot-body">
+            <span class="idx"><%= i.ticket %></span>
+            <h3><%= i.name %></h3>
+            <span class="arrow">View vertical &rarr;</span>
+          </span>
         </a>
       <% }); %>
     </div>
