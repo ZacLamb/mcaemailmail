@@ -23,13 +23,45 @@ app.use(
   })
 );
 
-// Force canonical host + https in production (helps SEO consolidation)
+// Baseline security headers.
+app.use((req, res, next) => {
+  res.set('X-Content-Type-Options', 'nosniff');
+  res.set('X-Frame-Options', 'SAMEORIGIN');
+  res.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.set('Permissions-Policy', 'geolocation=(), microphone=(), camera=()');
+  next();
+});
+
+// Upgrade http -> https. Always on in production and safe to leave on: it
+// redirects to the SAME host, so it works on the railway.app subdomain and on
+// a custom domain, and cannot loop. Railway terminates TLS at the edge, so the
+// real scheme arrives in x-forwarded-proto (hence `trust proxy` above).
+app.use((req, res, next) => {
+  if (process.env.NODE_ENV !== 'production') return next();
+  const proto = req.headers['x-forwarded-proto'] || req.protocol;
+  if (proto !== 'https') {
+    return res.redirect(301, `https://${req.headers.host}${req.originalUrl}`);
+  }
+  next();
+});
+
+// HSTS tells browsers never to try http again. Only switch this on once https
+// is confirmed working on the real domain -- it is cached by the browser for a
+// year and is painful to undo.
+app.use((req, res, next) => {
+  if (process.env.ENABLE_HSTS === 'true' && (req.headers['x-forwarded-proto'] || req.protocol) === 'https') {
+    res.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+  }
+  next();
+});
+
+// Separately, send every request to the ONE canonical hostname (SEO: stops
+// railway.app and your domain both getting indexed). Leave this off until DNS
+// resolves, or you will bounce working traffic at a domain that is not live.
 app.use((req, res, next) => {
   if (process.env.NODE_ENV === 'production' && process.env.FORCE_CANONICAL === 'true') {
-    const host = req.headers.host || '';
-    const proto = req.headers['x-forwarded-proto'] || req.protocol;
     const canonicalHost = site.baseUrl.replace(/^https?:\/\//, '');
-    if (host !== canonicalHost || proto !== 'https') {
+    if ((req.headers.host || '') !== canonicalHost) {
       return res.redirect(301, `${site.baseUrl}${req.originalUrl}`);
     }
   }
