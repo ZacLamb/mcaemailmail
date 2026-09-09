@@ -21,10 +21,10 @@
 
       <div class="rv">
         <div class="hero-shot mb2">
-          <img src="<%= img.hero %>" alt="A small business owner reviewing figures after hours" fetchpriority="high">
+          <img src="<%= img.hero %>" alt="An email campaign open on a laptop" fetchpriority="high">
           <span class="tag"><span class="dot"></span>4.1M+ merchant records</span>
         </div>
-        <%- include('partials/leadform', { formSource: 'homepage-hero', formTitle: 'Request counts &amp; pricing' }) %>
+        <%- include('partials/leadform', { formSource: 'homepage-hero', formTitle: 'Request counts & pricing' }) %>
       </div>
     </div>
   </div>
@@ -78,7 +78,7 @@
     <div class="two-col">
       <div>
         <div class="split mb2">
-          <div class="split-media"><img src="<%= img.data %>" alt="" loading="lazy"></div>
+          <div class="split-media"><img src="<%= img.verify %>" alt="Email records being verified" loading="lazy"></div>
           <div class="split-body">
             <div class="eyebrow">The difference</div>
             <h3 style="font-size:clamp(1.3rem,2.4vw,1.8rem);text-transform:uppercase">Filtered before you pay,<br>not after</h3>
@@ -141,13 +141,11 @@
 
     <div class="grid c4">
       <% topIndustries.forEach(function(i){ %>
-        <a class="card shot" href="/industries/<%= i.slug %>">
-          <span class="shot-img"><img src="<%= img.forVertical(i.slug) %>" alt="" loading="lazy"></span>
-          <span class="shot-body">
-            <span class="idx"><%= i.ticket %></span>
-            <h3><%= i.short %></h3>
-            <span class="arrow">View data &rarr;</span>
-          </span>
+        <a class="card" href="/industries/<%= i.slug %>">
+          <span class="idx"><%= i.ticket %></span>
+          <h3><%= i.short %></h3>
+          <p><%= i.pains[0] %></p>
+          <span class="arrow">View data &rarr;</span>
         </a>
       <% }); %>
     </div>

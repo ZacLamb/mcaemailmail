@@ -6,7 +6,7 @@
   <div class="wrap narrow">
     <div class="eyebrow">Legal</div>
     <h1><%= doc === 'privacy' ? 'Privacy Policy' : doc === 'terms' ? 'Terms of Service' : 'Opt Out' %></h1>
-    <p class="lede">Last updated <%= year %>. Questions on any of this go to <a href="mailto:<%= site.email %>" style="color:var(--gold)"><%= site.email %></a>.</p>
+    <p class="lede">Last updated <%= year %>. Questions on any of this go to <a href="mailto:<%= site.email %>" style="color:var(--accent-deep);text-decoration:underline"><%= site.email %></a>.</p>
   </div>
 </section>
 
@@ -16,7 +16,7 @@
       <article class="prose">
 
         <% if (doc === 'privacy') { %>
-          <p>This policy explains what <%= site.legalName %> collects through this website, how it is used, and the choices available to you. It covers this website only — data we license to clients is governed by our client agreements and described on our <a href="/data-and-compliance" style="color:var(--gold)">Data &amp; Compliance</a> page.</p>
+          <p>This policy explains what <%= site.legalName %> collects through this website, how it is used, and the choices available to you. It covers this website only — data we license to clients is governed by our client agreements and described on our <a href="/data-and-compliance" style="color:var(--accent-deep);text-decoration:underline">Data &amp; Compliance</a> page.</p>
 
           <h2>Information we collect</h2>
           <p>When you submit a form we collect the information you provide: name, business email, phone number, company name, and the campaign criteria you describe. When you browse we may collect standard technical information such as IP address, browser type, referring page, and pages visited, along with analytics identifiers if analytics is enabled.</p>
@@ -34,7 +34,7 @@
           <p>We retain inquiry information for as long as needed to serve you and to meet legal, accounting, and reporting obligations, then delete or de-identify it.</p>
 
           <h2>Your choices</h2>
-          <p>You can unsubscribe from marketing email at any time using the link in any message, or request access to, correction of, or deletion of your information by emailing <a href="mailto:<%= site.email %>" style="color:var(--gold)"><%= site.email %></a>. To be removed from our marketing data entirely, use our <a href="/opt-out" style="color:var(--gold)">opt-out page</a>. Residents of certain states and countries have additional rights; contact us and we will honor applicable requests.</p>
+          <p>You can unsubscribe from marketing email at any time using the link in any message, or request access to, correction of, or deletion of your information by emailing <a href="mailto:<%= site.email %>" style="color:var(--accent-deep);text-decoration:underline"><%= site.email %></a>. To be removed from our marketing data entirely, use our <a href="/opt-out" style="color:var(--accent-deep);text-decoration:underline">opt-out page</a>. Residents of certain states and countries have additional rights; contact us and we will honor applicable requests.</p>
 
           <h2>Security</h2>
           <p>We use reasonable administrative, technical, and physical safeguards to protect information. No method of transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
@@ -46,7 +46,7 @@
           <p>We may update this policy from time to time. Material changes will be reflected by an updated date on this page.</p>
 
           <h2>Contact</h2>
-          <p><%= site.legalName %>, <%= site.address.line1 %>, <%= site.address.line2 %>. Email <a href="mailto:<%= site.email %>" style="color:var(--gold)"><%= site.email %></a>, phone <%= site.phone %>.</p>
+          <p><%= site.legalName %>, <%= site.address.line1 %>, <%= site.address.line2 %>. Email <a href="mailto:<%= site.email %>" style="color:var(--accent-deep);text-decoration:underline"><%= site.email %></a>, phone <%= site.phone %>.</p>
 
         <% } else if (doc === 'terms') { %>
           <p>These terms govern your use of this website and, where applicable, our data and marketing services. By using the site you agree to them.</p>
@@ -88,7 +88,7 @@
           <p>Your email address and business record are added to our global suppression list. That list is permanent, applies across every account and every campaign, and is checked before any file is delivered. Once suppressed, your record cannot be re-added by a future data pull.</p>
 
           <h2>How to request removal</h2>
-          <p>Email <a href="mailto:<%= site.email %>?subject=Opt%20Out%20Request" style="color:var(--gold)"><%= site.email %></a> with the subject line "Opt Out" and include the email address or addresses you want removed, plus your business name if you want the whole record suppressed rather than one address. You can also use the unsubscribe link in any message you received, which processes immediately.</p>
+          <p>Email <a href="mailto:<%= site.email %>?subject=Opt%20Out%20Request" style="color:var(--accent-deep);text-decoration:underline"><%= site.email %></a> with the subject line "Opt Out" and include the email address or addresses you want removed, plus your business name if you want the whole record suppressed rather than one address. You can also use the unsubscribe link in any message you received, which processes immediately.</p>
 
           <h2>Timing</h2>
           <p>Requests are processed promptly and well inside the ten business day window required by the CAN-SPAM Act. In practice, suppression is applied the same business day.</p>
@@ -97,18 +97,18 @@
           <p>Suppressing your record with us removes it from files we supply going forward. It does not remove you from data that client obtained from another source. If you received a message from a specific sender, use the unsubscribe link in that message as well, and tell us who it was so we can suppress the record on our side.</p>
 
           <h2>Questions</h2>
-          <p>Write to <a href="mailto:<%= site.email %>" style="color:var(--gold)"><%= site.email %></a> or call <%= site.phone %>. Mailing address: <%= site.legalName %>, <%= site.address.line1 %>, <%= site.address.line2 %>.</p>
+          <p>Write to <a href="mailto:<%= site.email %>" style="color:var(--accent-deep);text-decoration:underline"><%= site.email %></a> or call <%= site.phone %>. Mailing address: <%= site.legalName %>, <%= site.address.line1 %>, <%= site.address.line2 %>.</p>
         <% } %>
 
       </article>
 
       <div class="sticky">
         <div class="spec">
-          <div class="spec-row"><dt>Privacy</dt><dd><a href="/privacy" style="color:var(--gold)">Privacy Policy</a></dd></div>
-          <div class="spec-row"><dt>Terms</dt><dd><a href="/terms" style="color:var(--gold)">Terms of Service</a></dd></div>
-          <div class="spec-row"><dt>Opt out</dt><dd><a href="/opt-out" style="color:var(--gold)">Removal request</a></dd></div>
-          <div class="spec-row"><dt>Data practices</dt><dd><a href="/data-and-compliance" style="color:var(--gold)">Data &amp; Compliance</a></dd></div>
-          <div class="spec-row"><dt>Contact</dt><dd><a href="mailto:<%= site.email %>" style="color:var(--gold)"><%= site.email %></a></dd></div>
+          <div class="spec-row"><dt>Privacy</dt><dd><a href="/privacy" style="color:var(--accent-deep);text-decoration:underline">Privacy Policy</a></dd></div>
+          <div class="spec-row"><dt>Terms</dt><dd><a href="/terms" style="color:var(--accent-deep);text-decoration:underline">Terms of Service</a></dd></div>
+          <div class="spec-row"><dt>Opt out</dt><dd><a href="/opt-out" style="color:var(--accent-deep);text-decoration:underline">Removal request</a></dd></div>
+          <div class="spec-row"><dt>Data practices</dt><dd><a href="/data-and-compliance" style="color:var(--accent-deep);text-decoration:underline">Data &amp; Compliance</a></dd></div>
+          <div class="spec-row"><dt>Contact</dt><dd><a href="mailto:<%= site.email %>" style="color:var(--accent-deep);text-decoration:underline"><%= site.email %></a></dd></div>
         </div>
       </div>
     </div>
